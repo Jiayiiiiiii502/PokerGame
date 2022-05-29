@@ -109,13 +109,13 @@ public class PokerStats {
     int hands = HANDS_PER_TRIAL * numTrials;
     out.printf("\n%,d hands dealt\n\n", hands);
 
-    out.printf("P(Pair)            = %6.3f%%\n", 100.0*pair/hands);
-    out.printf("P(Two Pair)        = %6.3f%%\n", 100.0*twoPairs/hands);
-    out.printf("P(Three of a Kind) = %6.3f%%\n", 100.0*threeOfAKind/hands);
-    out.printf("P(Straight)        = %6.3f%%\n", 100.0*straight/hands);
-    out.printf("P(Flush)           = %6.3f%%\n", 100.0*flush/hands);
-    out.printf("P(Full House)      = %6.3f%%\n", 100.0*fullHouse/hands);
-    out.printf("P(Four of a Kind)  = %6.3f%%\n", 100.0*fourOfAKind/hands);
+    out.printf("P(Pair)            = %6.3f%%\n", 100.0 * pair / hands);
+    out.printf("P(Two Pair)        = %6.3f%%\n", 100.0 * twoPairs / hands);
+    out.printf("P(Three of a Kind) = %6.3f%%\n", 100.0 * threeOfAKind / hands);
+    out.printf("P(Straight)        = %6.3f%%\n", 100.0 * straight / hands);
+    out.printf("P(Flush)           = %6.3f%%\n", 100.0 * flush / hands);
+    out.printf("P(Full House)      = %6.3f%%\n", 100.0 * fullHouse / hands);
+    out.printf("P(Four of a Kind)  = %6.3f%%\n", 100.0 * fourOfAKind / hands);
   }
 
   public static void main(String[] args) {
@@ -124,25 +124,24 @@ public class PokerStats {
 
     if (args.length == 1) {
       stats = new PokerStats(args[0]);
-    }
-    else if (args.length == 2) {
+    } else if (args.length == 2) {
       int trials = Integer.parseInt(args[1]);
       stats = new PokerStats(args[0], trials);
-    }
-    else {
+    } else {
       System.err.println("Error: invalid command line arguments");
       System.err.println("Filename required, optionally followed by number of trials");
       System.exit(1);
     }
 
     try {
-      Card.useFancySymbols(true);
-      stats.runTrials();
-      stats.showResults();
-    }
+    Card.useFancySymbols(true);
+    stats.runTrials();
+    stats.showResults();
+      }
     catch (FileNotFoundException error) {
       System.err.printf("Error: %s\n", error.getMessage());
       System.exit(2);
     }
   }
-}
+  }
+

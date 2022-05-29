@@ -11,7 +11,7 @@ public class Card implements Comparable<Card> {
 
   /*--------------------------- Enumerated types ---------------------------*/
 
-  public enum Rank {
+  public enum Rank {  //大小排序
     ACE('A'), TWO('2'), THREE('3'), FOUR('4'), FIVE('5'),
     SIX('6'), SEVEN('7'), EIGHT('8'), NINE('9'), TEN('T'),
     JACK('J'), QUEEN('Q'), KING('K');
@@ -30,7 +30,7 @@ public class Card implements Comparable<Card> {
     }
   }
 
-  public enum Suit {
+  public enum Suit {//花色
     CLUBS('C', '\u2663'), DIAMONDS('D', '\u2666'),
     HEARTS('H', '\u2665'), SPADES('S', '\u2660');
 
@@ -73,9 +73,8 @@ public class Card implements Comparable<Card> {
 
   /**
    * Creates a Card object.
+   *  @param r Rank of the card
    *
-   * @param r Rank of the card
-   * @param s Suit of the card
    */
   public Card(Rank r, Suit s) {
     rank = r;
@@ -138,7 +137,7 @@ public class Card implements Comparable<Card> {
     }
   }
 
-  /**
+  /**返回牌的大小
    * Provides the rank of this card.
    *
    * @return The rank
@@ -147,7 +146,7 @@ public class Card implements Comparable<Card> {
     return rank;
   }
 
-  /**
+  /**返回牌的花色
    * Provides the suit of this card.
    *
    * @return The suit
